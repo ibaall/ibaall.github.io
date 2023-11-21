@@ -1,0 +1,52 @@
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+}
+
+.image-container:hover .image {
+    transform: scale(1.2);
+}
+
+.image {
+    max-width: 40%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease; 
+}
+
+.text-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 60%; 
+    transition: opacity 0.3s ease, left 0.3s ease; 
+}
+
+.image-container:hover .text-container {
+    opacity: 1;
+    left: 50%; 
+}
+
+.text-container a h2 {
+    font-size: 30px;
+    margin: 0;
+    text-decoration: none; 
+}
+
+a:link, a:visited {
+    text-decoration: none;
+  }
+  
+
+
+
+

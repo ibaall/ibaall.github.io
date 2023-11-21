@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    
+    color: goldenrod;
+    text-align: center;
+    padding: 10px;
+    border-spacing: 200px;
+   
+}
+h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+.benefits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+article {
+    width: 900px;
+    margin: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+img {
+    width: 40%;
+    border-radius: 20px;
+    margin: 0 auto; /* Add this line to center the image horizontally */
+    display: block; /* Add this line to remove any default inline styling of the image */
+    margin-bottom: 100px;
+}
+
+
+h2 {
+    color: #3498db;
+}
+
+p {
+    color: #555;
+}
+
+
+.dashboard .belimbing-back {
+    position: absolute;
+    top: 62%; /* Center vertically */
+    left: 38%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center both horizontally and vertically */
+    background-color: #426b1f;
+    color: #ffffff;
+    padding: 10px 60px; /* Adjust padding as needed */
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-weight: 600;
+    font-size: 16px;
+  }
+.dashboard .belimbing-next {
+    position: absolute;
+    top: 62%; /* Center vertically */
+    left: 62%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center both horizontally and vertically */
+    background-color: #426b1f;
+    color: #ffffff;
+    padding: 10px 60px; /* Adjust padding as needed */
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-weight: 600;
+    font-size: 16px;
+  }

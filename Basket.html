@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> Basket</title>
+  <link rel="stylesheet" href="uts.css">
+  <link rel="stylesheet" href="Basket.css">
+</head>
+<body>
+  <div class="dashboard">
+      <div class="div">
+        <header class="header">
+          <a href="index.html" class="text-wrapper">Kimia Darma</a>
+          <a href="shop.html" class="text-wrapper-2">Shop</a>
+          <a href="News.html" class="text-wrapper-3">News</a>
+          <a href="Ask Doctor.html" class="ask-doctor">Ask Doctor</a>
+          <a href="Follow Us.html" class="text-wrapper-4">Follow Us</a>
+          <a href="Basket.html" class="text-wrapper-5">Basket</a>
+        </header>
+  <main>
+    <br><br><br><br><br><br>
+    <h1>Basket</h1>
+    <hr>
+    <br><br>
+
+    <div class="container" id="product1">
+      <div class="product">
+        <img src="247631_17-5-2022_17-19-12-1665791278.webp" alt=" Lactulax">
+        <div class="product-info">
+          <p class="name">Lactulax Sirup 60ml</p>
+          <p class="price">Rp 40.300</p>
+          <input type="number" value="1" min="1" max="10" class="quantity">
+          <span class="total">Rp 40.300</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="product2">
+      <div class="product">
+        <img src="9542-1665780048.webp" alt="Herocyn">
+        <div class="product-info">
+          <p class="name">Herocyn Bedak Kulit 85g</p>
+          <p class="price">Rp 15.400</p>
+          <input type="number" value="1" min="1" max="10" class="quantity">
+          <span class="total">Rp 15.400</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="product3">
+      <div class="product">
+        <img src="530710_8-6-2021_15-23-56-1665838411.webp" alt="Salonpas">
+        <div class="product-info">
+          <p class="name"> Salonpas Jet Spray</p>
+          <p class="price">Rp 40.500</p>
+          <input type="number" value="1" min="1" max="10" class="quantity">
+          <span class="total">Rp 40.500</span>
+        </div>
+      </div>
+    </div>
+    <div class="order-summary-container">
+      <div class="order-summary">
+        <h2>Order Summary</h2>
+        <div id="subtotal">Subtotal: Rp 0</div>
+        <div id="tax">Tax: Rp 0</div>
+        <div id="shipping">Shipping: Rp 0</div>
+        <div id="grandTotal">Grand Total: Rp 0</div>
+      </div>
+      <button class="update-button">Update Price</button>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2023 Muhammad Rif'ah Iqbali</p>
+  </footer>
+
+  <script>
+    function extractNumericValue(priceString) {
+      return parseFloat(priceString.replace('Rp ', '').replace(/\./g, '').replace(',', '.'));
+    }
+
+    function formatPrice(price) {
+      const formattedPrice = price.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
+      return formattedPrice.replace(/\,00$/, '');
+    }
+
+    window.onload = function () {
+      const updateButton = document.querySelector('.update-button');
+      const subtotalElement = document.getElementById('subtotal');
+      const taxElement = document.getElementById('tax');
+      const shippingElement = document.getElementById('shipping');
+      const grandTotalElement = document.getElementById('grandTotal');
+
+      function updateSubtotalOnPage(subtotal) {
+        subtotalElement.textContent = `Subtotal: ${formatPrice(subtotal)}`;
+      }
+
+      function updateTotals() {
+        const containers = document.querySelectorAll('.container');
+        let subtotal = 0;
+        let grandTotal = 0;
+        let tax = 0;
+
+        containers.forEach(function (container) {
+          const quantityInput = container.querySelector('.quantity');
+          const priceElement = container.querySelector('.price');
+          const totalElement = container.querySelector('.total');
+
+          const quantity = parseInt(quantityInput.value);
+          const price = extractNumericValue(priceElement.textContent);
+          const newTotal = quantity * price;
+          totalElement.textContent = formatPrice(newTotal);
+
+          grandTotal += newTotal;
+        });
+
+        tax = grandTotal * 0.1;
+        subtotal = grandTotal;
+        updateSubtotalOnPage(subtotal);
+        taxElement.textContent = `Tax: ${formatPrice(tax)}`;
+
+        // Set shipping cost to Rp 10,000 after updating totals
+        const shippingCost = 10000;
+        shippingElement.textContent = `Shipping: ${formatPrice(shippingCost)}`;
+
+        grandTotalElement.textContent = `Grand Total: ${formatPrice(grandTotal + tax + shippingCost)}`;
+      }
+
+      updateButton.addEventListener('click', updateTotals);
+
+      // Set nilai subtotal menjadi 0 saat halaman dimuat ulang
+      updateSubtotalOnPage(0);
+      taxElement.textContent = `Tax: Rp 0`;
+      shippingElement.textContent = `Shipping: Rp 0`;
+      grandTotalElement.textContent = `Grand Total: Rp 0`;
+    }
+  </script>
+</body>
+</html>

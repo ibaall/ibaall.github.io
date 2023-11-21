@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Shop</title>
+    <link rel="stylesheet" href="uts.css">
+    <link rel="stylesheet" href="shop.css">
+</head>
+
+<body>
+    <div class="dashboard">
+        <div class="div">
+          <header class="header">
+            <a href="contoh.html" class="text-wrapper">Kimia Darma</a> <!-- Make the text a clickable link -->
+            <a href="shop.html" class="text-wrapper-2">Shop</a>
+            <a href="News.html" class="text-wrapper-3">News</a>
+            <a href="Ask Doctor.html" class="ask-doctor">Ask Doctor</a>
+            <a href="Follow Us.html" class="text-wrapper-4">Follow Us</a>
+            <a href="Basket.html" class="text-wrapper-5">Basket</a>
+          </header>
+    <main>
+        <br><br><br><br><br><br><br>
+        <h1>Medicine</h1>
+        <h2 id="updateDate" class="date"></h2>
+
+        <section class="filter">
+            <h2>Filter</h2>
+            <form action="#">
+                <input type="text" name="search" placeholder="Search">
+                <select name="sort">
+                    
+                    <option value="default">Default</option>
+                    <option value="a-z">A-Z</option>
+                    <option value="list">List view</option>
+                </select>
+                <input type="submit" value="Filter">
+            </form>
+        </section>
+        <br><br><br><br><br><br><br>
+        <section class="products">
+            <ul>
+                <li>
+                    <a href="basket.html">
+                        <img src="247631_17-5-2022_17-19-12-1665791278.webp" alt="Lactulax Sirup">
+                        <h3>Lactulax Sirup</h3>
+                        <p class="price">Rp 40.300-Rp 67.000</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="basket.html">
+                        <img src="9542-1665780048.webp" alt="Herocyn Bedak Kulit">
+                        <h3>Herocyn Bedak Kulit</h3>
+                        <p class="price">Rp 15.400-Rp 16.500</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="basket.html">
+                        <img src="530710_8-6-2021_15-23-56-1665838411.webp" alt="Salonpas Jet Spray">
+                        <h3>Salonpas Jet Spray</h3>
+                        <p class="price">Rp 40.500 Rp 53.700</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Muhammad Rif'ah Iqbali</p>
+    </footer>
+    <script>
+        // Fungsi untuk mendapatkan tanggal dalam format yang diinginkan
+        function getCurrentDate() {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const currentDate = new Date().toLocaleDateString('en-US', options);
+            return currentDate;
+        }
+
+        // Mengatur tanggal pada saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function () {
+            const dateElement = document.getElementById('updateDate');
+            dateElement.innerText = getCurrentDate();
+        });
+
+        // Fungsi untuk mengarahkan ke halaman shop
+        function goToShop() {
+            window.location.href = "shop.html";
+        }
+
+        // Fungsi untuk mengarahkan ke halaman news
+        function goToNews() {
+            window.location.href = "news.html";
+        }
+
+        // Fungsi untuk mengarahkan ke halaman ask doctor
+        function goToAskDoctor() {
+            window.location.href = "ask-doctor.html";
+        }
+
+        // Fungsi untuk mengarahkan ke halaman follow us
+        function goToFollowUs() {
+            window.location.href = "follow-us.html";
+        }
+
+        // Fungsi untuk mengarahkan ke halaman basket
+        function goToBasket() {
+            window.location.href = "basket.html";
+        }
+
+        // Menambahkan event listener ke tombol shop
+        const buttonShop = document.querySelector(".links a:nth-child(1)");
+        buttonShop.addEventListener("click", goToShop);
+
+        // Menambahkan event listener ke tombol news
+        const buttonNews = document.querySelector(".links a:nth-child(2)");
+        buttonNews.addEventListener("click", goToNews);
+
+        // Menambahkan event listener ke tombol ask doctor
+        const buttonAskDoctor = document.querySelector(".links a:nth-child(3)");
+        buttonAskDoctor.addEventListener("click", goToAskDoctor);
+
+        // Menambahkan event listener ke tombol follow us
+        const buttonFollowUs = document.querySelector(".links a:nth-child(4)");
+        buttonFollowUs.addEventListener("click", goToFollowUs);
+
+        // Menambahkan event listener ke tombol basket
+        const buttonBasket = document.querySelector(".links a:nth-child(5)");
+        buttonBasket.addEventListener("click", goToBasket);
+    </script>
+</body>
+
+</html>
